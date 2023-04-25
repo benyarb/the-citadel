@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@layer components {
+  .card {
+    border-radius: theme("borderRadius.lg");
+    border: 1px solid #fff;
+    padding: theme("spacing.6");
+    box-shadow: theme("boxShadow.xl");
+  }
+}

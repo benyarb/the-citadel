@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className={`p-12 ${inter.className}`}>
       <Header />
 
-      <main className="py-12">
+      <main className="max-w-5xl py-12">
         <Component {...pageProps} />
       </main>
 

@@ -12,7 +12,7 @@ export default function Nav() {
   const { asPath: currentPath } = useRouter();
 
   return (
-    <nav className="flex gap-4">
+    <nav className="flex justify-center gap-4">
       {links.map((link, i) => (
         <Link
           className={`navlink ${currentPath === link.path ? "underline" : ""}`}
