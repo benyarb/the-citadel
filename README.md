@@ -1,4 +1,4 @@
-This is [The Citadel](https://thecitadel.fun/) - a project created with Next JS and GraphQL to consume the [Rick and Morty API](https://rickandmortyapi.com/graphql) and display it as a grid of cards. There are 3 variations of data fetching used: Static Site Generator (SSG), Server-side Rendering (SSR), and Client-side Rendering (CSR).
+This is [The Citadel](https://thecitadel.fun/) - a project created with Next JS and GraphQL to access the [Rick and Morty API](https://rickandmortyapi.com/graphql) and display it as a grid of cards. There are 3 variations of data fetching used: Static Site Generator (SSG), Server-side Rendering (SSR), and Client-side Rendering (CSR).
 
 ## Getting Started
 
