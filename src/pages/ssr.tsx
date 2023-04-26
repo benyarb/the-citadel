@@ -1,22 +1,19 @@
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
 import { Character } from "../interfaces";
+import CardGrid from "@/components/CardGrid";
 
 export default function SSR({ characters }: { characters: Character[] }) {
   return (
     <>
-      <h2>SSR</h2>
-      <p>Server-side Rendering</p>
+      <section className="page-info">
+        <h2>SSR</h2>
+        <p>
+          Server-side Rendering - Generate page on the server for each request
+        </p>
+      </section>
 
-      <div className="grid-cols-2">
-        {characters.map((character) => (
-          <div key={character.id} className="card">
-            <p>
-              {character.id} - {character.name}
-            </p>
-          </div>
-        ))}
-      </div>
+      <CardGrid characters={characters} />
     </>
   );
 }
@@ -25,7 +22,7 @@ export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`
       query Characters {
-        characters {
+        characters(filter: { name: "Rick" }) {
           results {
             id
             image
@@ -44,7 +41,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      characters: data.characters.results.slice(0, 4),
+      characters: data.characters.results,
     },
   };
 }

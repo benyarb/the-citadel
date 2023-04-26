@@ -3,7 +3,10 @@ import Image from "next/image";
 
 export default function Brand() {
   return (
-    <Link href="/" className="flex justify-center items-end gap-2 pb-6">
+    <Link
+      href="/"
+      className="brand max-w-lg mx-auto flex justify-center items-end gap-2 pb-8 pt-48"
+    >
       <h1 className="text-4xl leading-none text-left">The Citadel</h1>
       <p className="text-sm">with</p>
 

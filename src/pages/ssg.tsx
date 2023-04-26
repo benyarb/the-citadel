@@ -1,22 +1,20 @@
 import { gql } from "@apollo/client";
 import client from "../apollo-client";
 import { Character } from "../interfaces";
+import CardGrid from "@/components/CardGrid";
 
 export default function SSG({ characters }: { characters: Character[] }) {
   return (
     <>
-      <h2>SSG</h2>
-      <p>Static Site Generator</p>
+      <section className="page-info">
+        <h2>SSG</h2>
+        <p>
+          Static Site Generator - Generate page at build time and serve static
+          HTML
+        </p>
+      </section>
 
-      <div className="grid-cols-2">
-        {characters.map((character) => (
-          <div key={character.id} className="card">
-            <p>
-              {character.id} - {character.name}
-            </p>
-          </div>
-        ))}
-      </div>
+      <CardGrid characters={characters} />
     </>
   );
 }
@@ -25,7 +23,7 @@ export async function getStaticProps() {
   const { data } = await client.query({
     query: gql`
       query Characters {
-        characters {
+        characters(filter: { name: "Rick" }) {
           results {
             id
             image
@@ -44,7 +42,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      characters: data.characters.results.slice(0, 4),
+      characters: data.characters.results,
     },
   };
 }

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 export default function Nav() {
   const links = [
-    { label: "Home", path: "/" },
+    // { label: "Home", path: "/" },
     { label: "SSG", path: "/ssg" },
     { label: "SSR", path: "/ssr" },
     { label: "CSR", path: "/csr" },
@@ -12,10 +12,10 @@ export default function Nav() {
   const { asPath: currentPath } = useRouter();
 
   return (
-    <nav className="flex justify-center gap-4">
+    <nav className="flex justify-center gap-6">
       {links.map((link, i) => (
         <Link
-          className={`navlink ${currentPath === link.path ? "underline" : ""}`}
+          className={`navlink ${currentPath === link.path ? "active" : ""}`}
           key={i}
           href={link.path}
         >
