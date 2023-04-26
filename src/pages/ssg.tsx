@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 import client from "../apollo-client";
 import { Character } from "../interfaces";
 import CardGrid from "@/components/CardGrid";
-import { getCharacters } from "@/queries";
+import { GET_CHARACTERS } from "@/queries";
 
 export default function SSG({ characters }: { characters: Character[] }) {
   return (
@@ -22,7 +22,7 @@ export default function SSG({ characters }: { characters: Character[] }) {
 
 export async function getStaticProps() {
   const { data } = await client.query({
-    query: getCharacters,
+    query: GET_CHARACTERS,
   });
 
   return {

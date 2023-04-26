@@ -1,9 +1,9 @@
 import { useQuery } from "@apollo/client";
 import CardGrid from "./CardGrid";
-import { getCharacters } from "@/queries";
+import { GET_CHARACTERS } from "@/queries";
 
 export default function ClientCharacters() {
-  const { data, loading, error } = useQuery(getCharacters);
+  const { data, loading, error } = useQuery(GET_CHARACTERS);
 
   if (loading) {
     return (

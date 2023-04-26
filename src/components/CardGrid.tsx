@@ -15,10 +15,9 @@ export default function CardGrid({ characters }: { characters: Character[] }) {
             width={256}
             height={256}
           />
-          <p className="p-6">
-            <strong>{character.name}</strong>
-            {character.type}
-            {character.status}
+          <p className="p-4 text-center">
+            <strong className="block">{character.name}</strong>
+            <em>Status: {character.status}</em>
           </p>
         </div>
       ))}

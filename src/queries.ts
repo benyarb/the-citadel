@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const getCharacters = gql`
+export const GET_CHARACTERS = gql`
   query Characters {
     characters(filter: { name: "Rick" }) {
       results {
