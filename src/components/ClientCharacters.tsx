@@ -1,27 +1,9 @@
-import { useQuery, gql } from "@apollo/client";
-import { Character } from "../interfaces";
+import { useQuery } from "@apollo/client";
 import CardGrid from "./CardGrid";
-
-const QUERY = gql`
-  query Characters {
-    characters(filter: { name: "Rick" }) {
-      results {
-        id
-        image
-        name
-      }
-      info {
-        count
-        pages
-        next
-        prev
-      }
-    }
-  }
-`;
+import { getCharacters } from "@/queries";
 
 export default function ClientCharacters() {
-  const { data, loading, error } = useQuery(QUERY);
+  const { data, loading, error } = useQuery(getCharacters);
 
   if (loading) {
     return (

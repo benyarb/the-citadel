@@ -2,6 +2,7 @@ import { gql } from "@apollo/client";
 import client from "../apollo-client";
 import { Character } from "../interfaces";
 import CardGrid from "@/components/CardGrid";
+import { getCharacters } from "@/queries";
 
 export default function SSR({ characters }: { characters: Character[] }) {
   return (
@@ -20,23 +21,7 @@ export default function SSR({ characters }: { characters: Character[] }) {
 
 export async function getServerSideProps() {
   const { data } = await client.query({
-    query: gql`
-      query Characters {
-        characters(filter: { name: "Rick" }) {
-          results {
-            id
-            image
-            name
-          }
-          info {
-            count
-            pages
-            next
-            prev
-          }
-        }
-      }
-    `,
+    query: getCharacters,
   });
 
   return {

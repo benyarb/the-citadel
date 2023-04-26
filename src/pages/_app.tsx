@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className={`page px-12 ${inter.className}`}>
       <Header />
 
-      <main className="max-w-5xl mx-auto py-12">
+      <main className="mx-auto py-12">
         <Component {...pageProps} />
       </main>
 
