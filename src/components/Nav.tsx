@@ -15,7 +15,7 @@ export default function Nav() {
     <nav className="flex justify-center gap-6">
       {links.map((link, i) => (
         <Link
-          className={`navlink ${currentPath === link.path ? "active" : ""}`}
+          className={`text-lg ${currentPath === link.path ? "active" : ""}`}
           key={i}
           href={link.path}
         >
